@@ -18,14 +18,14 @@ if (process.argv.length < 5) {
     // gets html for project page based on auth token
     request.get({
       headers: { contentType: 'application/json' },
-      url: 'https://intranet.hbtn.io/projects/' + process.argv[5],
-      form: JSON.stringify({ token: authToken, auth_token: authToken, auth_token: authToken, token: authToken })
+      url: 'https://intranet.hbtn.io/projects/' + process.argv[5] +'.json',
+      form: { auth_token: authToken, token: authToken}
     }, function (error, response, body) {
       if (error) {
         console.log(error);
         return;
       }
-      console.log(body);
+      console.log(JSON.parse(body).name);
     });
   });
 }
