@@ -25,7 +25,39 @@ if (process.argv.length < 5) {
         console.log(error);
         return;
       }
-      console.log(JSON.parse(body).name);
+      let tasksList = JSON.parse(body).tasks
+      //console.log(tasksList);
+      for (let i = 0; i < tasksList.length; i++) {
+      console.log(tasksList[i].id, tasksList[i].title);
+
+      request.get({
+        headers: { contentType: 'application/json' },
+        url: 'https://intranet.hbtn.io/projects/1177/users_done_by_task.json?task_id=10619&auth_token=' + authToken,
+        form: {}//auth_token: authToken, email: process.argv[2], api_key: process.argv[4], password: process.argv[3], scope: 'checker'}//auth_token: authToken, token: authToken}
+      }, function (error, response, body) {
+        if (error) {
+          console.log(error);
+          return;
+        }
+        console.log(body)
+      });
+
+
+      /*request.get({
+        headers: { contentType: 'application/json' },
+        url: 'https://intranet.hbtn.io/projects/' + process.argv[5] + '/users_done_by_task.json?task_id=' + tasksList[i].id,
+        form: { auth_token: authToken, token: authToken}
+      }, function (error, response, body) {
+        if (error) {
+          console.log(error);
+          return;
+        }
+        //console.log(JSON.parse(body))
+      });*/
+
+      }
     });
   });
 }
+
+// https://intranet.hbtn.io/projects/1177/users_done_by_task.json?task_id=10622
