@@ -6,6 +6,8 @@ const utils = require('./utils');
 
 const clips = [
 
+  //here is where the commands for clips will go
+
 ]
 
 const sendHelpMenu = message => {
@@ -21,6 +23,11 @@ const sendHelpMenu = message => {
     type **!bot** followed by any of the following commands
     **help** - reopen this menu
     **random** - play a random quote /n + clipsList
+
+  message.channel.send(helpMenu)
+  message.channel.send(
+    //<don't know yet
+  )
 }
 
 const playRandomClip = message => {

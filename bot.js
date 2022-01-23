@@ -9,6 +9,17 @@ client.on('ready', () => {
 })
 
 client.on('message', message => {
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return
+
+  //arg setup
+  const args = message.content.slice(config.prefix.length).split(' ')
+  const command = args[1].toLowerCase()
+
+  switch(command {
+    case 'random':
+      commands.playRandomClip(message);
+      break;
+  })
 
 })
 
