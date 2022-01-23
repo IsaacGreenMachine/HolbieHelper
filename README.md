@@ -1,2 +1,2 @@
 # Hi i'm Troy Mclure-
-The helper you always knew you needed
+The bot you always knew you needed
